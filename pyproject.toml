@@ -1,0 +1,19 @@
+[project]
+name = "chatwisme"
+version = "0.1.0"
+description = "A lean, self-hosted AI chat platform and connector framework for Rocket.Chat, built with FastAPI."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["chatbot", "rocket.chat", "fastapi", "llm", "assistant", "self-hosted", "connectors"]
+
+# Der Anwendungscode kommt schrittweise; bis dahin trägt das Repo nur das Gerüst.
+# Die zugesagte Laufzeitbasis (FastAPI) wird hier deklariert, wenn der erste Dienst landet.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Ollornog/ChatWisMe"
+Issues = "https://github.com/Ollornog/ChatWisMe/issues"
+
+[tool.setuptools]
+packages = []

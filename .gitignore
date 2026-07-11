@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+_site/
+
+# lokale Daten / Zustand
+data/
+
+# Secrets / lokale Overrides
+.env
+*.local.json
+*.bak
