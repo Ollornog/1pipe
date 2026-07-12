@@ -49,4 +49,4 @@ Was war erwartet, was passierte, und die kleinste Reproduktion — der beteiligt
 die eingehende Nachricht und die Antwort des Assistenten.
 
 <br /><br />
-<p align="right"><img src="../docs/microphone.png" alt="1pipe" width="60" height="60"></p>
+<p align="right"><img src="../docs/pipe.png" alt="1pipe" width="60" height="60"></p>

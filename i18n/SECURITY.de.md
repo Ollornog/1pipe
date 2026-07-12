@@ -34,4 +34,4 @@ Die Sicherheit der Drittdienste, mit denen sich 1pipe verbindet (Chat-Server, Mo
 Archiv), und alles, was ein angemeldeter Betreiber von Natur aus darf.
 
 <br /><br />
-<p align="right"><img src="../docs/microphone.png" alt="1pipe" width="60" height="60"></p>
+<p align="right"><img src="../docs/pipe.png" alt="1pipe" width="60" height="60"></p>
