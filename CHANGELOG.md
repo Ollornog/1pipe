@@ -6,6 +6,11 @@ Alle nennenswerten Änderungen an diesem Projekt. Das Format folgt lose
 
 ## [Unreleased]
 
+### Geändert
+
+- **Projekt in `1pipe` umbenannt** (vormals ChatWisMe): Repository, Paketname, README und
+  Übersetzung, Badges, Sicherheits-/Community-Dateien und Kontaktadresse.
+
 ## [0.1.0] - 2026-07-12
 
 ### Hinzugefügt

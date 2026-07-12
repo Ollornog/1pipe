@@ -6,7 +6,7 @@
 ## Schwachstellen melden
 
 Bitte vertraulich über GitHubs
-[private Meldung](https://github.com/Ollornog/ChatWisMe/security/advisories/new) statt über ein
+[private Meldung](https://github.com/Ollornog/1pipe/security/advisories/new) statt über ein
 öffentliches Issue. Eine erste Antwort kommt binnen einer Woche.
 
 ## Umfang und Entwurfsentscheidungen, die man kennen sollte
@@ -17,7 +17,7 @@ gemessen wird.
 - **Secrets kommen aus der Umgebung, nie aus dem Repo.** Chat-, Modell- und Archiv-Endpunkte und
   ihre Tokens werden aus Umgebungsvariablen gelesen. Das Repo liefert nur neutrale Beispiele.
 - **Die Anmeldung ist ausgelagert** an [TinySesam](https://github.com/Ollornog/TinySesam) und einen
-  OIDC-Anbieter. ChatWisMe speichert keine Passwörter.
+  OIDC-Anbieter. 1pipe speichert keine Passwörter.
 - **Eine Nachricht aus dem Chat ist ungeprüfte Eingabe.** Die Brücke schützt davor, die eigenen
   Nachrichten zu beantworten (eine Webhook-Schleife), und behandelt jede eingehende Nachricht als
   angreiferkontrollierten Text, bevor sie ein Werkzeug erreicht.
@@ -30,8 +30,8 @@ gemessen wird.
 
 ## Nicht im Umfang
 
-Die Sicherheit der Drittdienste, mit denen sich ChatWisMe verbindet (Chat-Server, Modell-Anbieter,
+Die Sicherheit der Drittdienste, mit denen sich 1pipe verbindet (Chat-Server, Modell-Anbieter,
 Archiv), und alles, was ein angemeldeter Betreiber von Natur aus darf.
 
 <br /><br />
-<p align="right"><img src="../docs/microphone.png" alt="ChatWisMe" width="60" height="60"></p>
+<p align="right"><img src="../docs/microphone.png" alt="1pipe" width="60" height="60"></p>

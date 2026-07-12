@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 r = Report("Hygiene — Repo")
 
 POLICY = hygiene.lade_policy()
-PROJEKTE = ["ChatWisMe"]
+PROJEKTE = ["1pipe"]
 
 DATEIEN = hygiene.getrackte_dateien(str(ROOT))
 

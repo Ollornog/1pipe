@@ -1,18 +1,18 @@
-<p align="center"><img src="../docs/microphone.png" alt="ChatWisMe" width="250" height="250"></p>
+<p align="center"><img src="../docs/microphone.png" alt="1pipe" width="250" height="250"></p>
 
-<h1 align="center">ChatWisMe</h1>
+<h1 align="center">1pipe</h1>
 
 <p align="center"><a href="../README.md">English</a> · <b>Deutsch</b></p>
 
 <p align="right">
-<a href="https://github.com/Ollornog/ChatWisMe/actions/workflows/ci.yml"><img src="https://github.com/Ollornog/ChatWisMe/actions/workflows/ci.yml/badge.svg" alt="tests"></a>
+<a href="https://github.com/Ollornog/1pipe/actions/workflows/ci.yml"><img src="https://github.com/Ollornog/1pipe/actions/workflows/ci.yml/badge.svg" alt="tests"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/License-MIT-informational.svg" alt="License: MIT"></a>
 <img src="https://img.shields.io/badge/python-3.10%2B-blue.svg" alt="Python">
 </p>
 
 ### Eine schlanke, selbst gehostete KI-Chat-Plattform und ein Connector-Framework für Rocket.Chat.
 
-ChatWisMe setzt einem Team einen Assistenten in den eigenen Chat und gibt ihm Werkzeuge: ein
+1pipe setzt einem Team einen Assistenten in den eigenen Chat und gibt ihm Werkzeuge: ein
 Dokumentenarchiv durchsuchen, eine Todo-Liste pro Person führen, eine Web-Recherche laufen lassen.
 Eine kleine Connector-Registry ordnet jedem Kanal zu, was der Assistent dort darf. Es soll ein
 schwergewichtiges visuelles Automatisierungswerkzeug durch ein paar hundert Zeilen expliziten
@@ -30,7 +30,7 @@ es zu duplizieren.
 
 **Früh — die Plattform wird gerade gebaut.** Dieses Repo trägt bislang das Projektgerüst: Lizenz,
 Doku, die geteilte Testbasis und die gehärtete CI. Der Anwendungscode kommt schrittweise dahinter.
-Über neue Versionen informiert der [Releases-Feed](https://github.com/Ollornog/ChatWisMe/releases);
+Über neue Versionen informiert der [Releases-Feed](https://github.com/Ollornog/1pipe/releases);
 einen `latest`-Tag gibt es bewusst nicht.
 
 ## Was es können wird
@@ -53,7 +53,7 @@ einen `latest`-Tag gibt es bewusst nicht.
 - **Konfiguration aus der Umgebung.** Kein Endpunkt, kein Token, kein Modell steht im Code; das Repo
   liefert nur neutrale Beispiele.
 - **Auth ist ausgelagert.** Das Plattform-Panel sitzt hinter
-  [TinySesam](https://github.com/Ollornog/TinySesam) und einem OIDC-Anbieter — ChatWisMe speichert
+  [TinySesam](https://github.com/Ollornog/TinySesam) und einem OIDC-Anbieter — 1pipe speichert
   keine Passwörter.
 - **Absichtlich klein.** Ein Connector ist eine Handvoll Werkzeuge mit klarem Vertrag, kein
   Plugin-Zoo.

@@ -6,7 +6,7 @@
 ## Reporting a vulnerability
 
 Please report privately through GitHub's
-[private vulnerability reporting](https://github.com/Ollornog/ChatWisMe/security/advisories/new)
+[private vulnerability reporting](https://github.com/Ollornog/1pipe/security/advisories/new)
 rather than opening a public issue. Expect a first reply within a week.
 
 ## Scope and design decisions worth knowing
@@ -16,7 +16,7 @@ The application is still being built; this policy states the design intent that 
 - **Secrets come from the environment, never the repo.** Chat, model and archive endpoints and their
   tokens are read from environment variables. The repository ships neutral examples only.
 - **Authentication is delegated** to [TinySesam](https://github.com/Ollornog/TinySesam) and an OIDC
-  provider. ChatWisMe stores no passwords.
+  provider. 1pipe stores no passwords.
 - **A message from the chat is untrusted input.** The bridge guards against answering its own
   messages (a webhook loop) and treats every incoming message as attacker-controlled text before it
   reaches a tool.
@@ -27,8 +27,8 @@ The application is still being built; this policy states the design intent that 
 
 ## Not in scope
 
-The security of the third-party services ChatWisMe connects to (the chat server, the model provider,
+The security of the third-party services 1pipe connects to (the chat server, the model provider,
 the archive), and anything an authenticated operator can do by design.
 
 <br /><br />
-<p align="right"><img src="docs/microphone.png" alt="ChatWisMe" width="60" height="60"></p>
+<p align="right"><img src="docs/microphone.png" alt="1pipe" width="60" height="60"></p>
