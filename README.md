@@ -1,18 +1,18 @@
-<p align="center"><img src="docs/microphone.png" alt="ChatWisMe" width="250" height="250"></p>
+<p align="center"><img src="docs/microphone.png" alt="1pipe" width="250" height="250"></p>
 
-<h1 align="center">ChatWisMe</h1>
+<h1 align="center">1pipe</h1>
 
 <p align="center"><b>English</b> · <a href="i18n/README.de.md">Deutsch</a></p>
 
 <p align="right">
-<a href="https://github.com/Ollornog/ChatWisMe/actions/workflows/ci.yml"><img src="https://github.com/Ollornog/ChatWisMe/actions/workflows/ci.yml/badge.svg" alt="tests"></a>
+<a href="https://github.com/Ollornog/1pipe/actions/workflows/ci.yml"><img src="https://github.com/Ollornog/1pipe/actions/workflows/ci.yml/badge.svg" alt="tests"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-informational.svg" alt="License: MIT"></a>
 <img src="https://img.shields.io/badge/python-3.10%2B-blue.svg" alt="Python">
 </p>
 
 ### A lean, self-hosted AI chat platform and connector framework for Rocket.Chat.
 
-ChatWisMe puts an assistant into a team's own chat and gives it tools: search a document
+1pipe puts an assistant into a team's own chat and gives it tools: search a document
 archive, keep a per-person todo list, run a web-research task. A small connector registry maps
 each channel to what the assistant may do there. It is meant to replace a heavy visual automation
 tool with a few hundred lines of explicit Python.
@@ -28,7 +28,7 @@ that project's JSON API rather than duplicating it.
 
 **Early — the platform is being built.** This repository currently carries the project skeleton:
 licence, docs, the shared test base and the hardened CI. The application code lands incrementally
-behind it. Watch the [releases feed](https://github.com/Ollornog/ChatWisMe/releases); there will be
+behind it. Watch the [releases feed](https://github.com/Ollornog/1pipe/releases); there will be
 no `latest` tag on purpose.
 
 ## What it will do
@@ -49,7 +49,7 @@ no `latest` tag on purpose.
 - **Configuration from the environment.** No endpoint, token or model is baked into the code; the
   repository ships neutral examples only.
 - **Auth is delegated.** The platform panel sits behind [TinySesam](https://github.com/Ollornog/TinySesam)
-  and an OIDC provider — ChatWisMe stores no passwords.
+  and an OIDC provider — 1pipe stores no passwords.
 - **Small on purpose.** A connector is a handful of tools with a clear contract, not a plugin zoo.
 
 ## Connectors

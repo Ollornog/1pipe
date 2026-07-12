@@ -1,5 +1,5 @@
 [project]
-name = "chatwisme"
+name = "1pipe"
 version = "0.1.0"
 description = "A lean, self-hosted AI chat platform and connector framework for Rocket.Chat, built with FastAPI."
 readme = "README.md"
@@ -12,8 +12,8 @@ keywords = ["chatbot", "rocket.chat", "fastapi", "llm", "assistant", "self-hoste
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/Ollornog/ChatWisMe"
-Issues = "https://github.com/Ollornog/ChatWisMe/issues"
+Homepage = "https://github.com/Ollornog/1pipe"
+Issues = "https://github.com/Ollornog/1pipe/issues"
 
 [tool.setuptools]
 packages = []

@@ -39,7 +39,7 @@ Dieser Verhaltenskodex gilt für alle Gemeinschaftsbereiche und gilt auch, wenn 
 
 ## Durchsetzung
 
-Fälle von missbräuchlichem, belästigendem oder anderweitig inakzeptablem Verhalten können unter chatwisme-github@ollornog.de der für die Durchsetzung zuständigen Gemeinschaftsleitung gemeldet werden. Alle Beschwerden werden zeitnah und fair geprüft und ermittelt.
+Fälle von missbräuchlichem, belästigendem oder anderweitig inakzeptablem Verhalten können unter 1pipe-github@ollornog.de der für die Durchsetzung zuständigen Gemeinschaftsleitung gemeldet werden. Alle Beschwerden werden zeitnah und fair geprüft und ermittelt.
 
 Die gesamte Gemeinschaftsleitung ist verpflichtet, die Privatsphäre und die Sicherheit derjenigen, die einen Vorfall gemeldet haben, zu respektieren.
 
@@ -84,4 +84,4 @@ Antworten auf häufig gestellte Fragen zu diesem Verhaltenskodex finden Sie in d
 [mozilla]: https://github.com/mozilla/inclusion
 
 <br /><br />
-<p align="right"><img src="../docs/microphone.png" alt="ChatWisMe" width="60" height="60"></p>
+<p align="right"><img src="../docs/microphone.png" alt="1pipe" width="60" height="60"></p>
