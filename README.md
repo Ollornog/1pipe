@@ -10,6 +10,8 @@
 <img src="https://img.shields.io/badge/python-3.10%2B-blue.svg" alt="Python">
 </p>
 
+> 🚧 **Work in progress** — under active development; interfaces and structure may still change before a stable `1.0` release.
+
 ### A lean, self-hosted AI chat platform and connector framework for Rocket.Chat.
 
 1pipe puts an assistant into a team's own chat and gives it tools: search a document

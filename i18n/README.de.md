@@ -10,6 +10,8 @@
 <img src="https://img.shields.io/badge/python-3.10%2B-blue.svg" alt="Python">
 </p>
 
+> 🚧 **In Arbeit** — wird aktiv entwickelt; Schnittstellen und Struktur können sich vor einem stabilen `1.0`-Release noch ändern.
+
 ### Eine schlanke, selbst gehostete KI-Chat-Plattform und ein Connector-Framework für Rocket.Chat.
 
 1pipe setzt einem Team einen Assistenten in den eigenen Chat und gibt ihm Werkzeuge: ein
