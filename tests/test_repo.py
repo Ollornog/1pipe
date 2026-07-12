@@ -36,7 +36,7 @@ PFLICHT = [
     "pyproject.toml", ".ci-image", ".gitignore",
     "scripts/check.sh", "scripts/_residue_check.sh", ".githooks/pre-push",
     ".github/workflows/ci.yml", ".github/dependabot.yml",
-    "tests/_kit/hygiene.py", "tests/run_all.py", "docs/microphone.png",
+    "tests/_kit/hygiene.py", "tests/run_all.py", "docs/pipe.png",
 ]
 fehlt = hygiene.pruefe_pflichtdateien(str(ROOT), PFLICHT)
 r.check("alle Pflichtdateien vorhanden", not fehlt, " | ".join(fehlt))
@@ -48,9 +48,11 @@ r.check(f"keine private Infrastruktur ({len(POLICY['private_muster'])} Muster"
         f" + {len(POLICY['private_namen_sha256_16'])} Namen)",
         not treffer, " | ".join(sorted(set(treffer))[:4]))
 
-# ---- Nur neutrale Beispieladressen (img.shields.io liefert die README-Badges)
+# ---- Nur neutrale Beispieladressen (img.shields.io liefert die README-Badges,
+#      flaticon.com trägt den lizenzpflichtigen Bildnachweis fürs Logo)
 adressen = hygiene.pruefe_adressen(str(ROOT), DATEIEN, POLICY,
-                                   zusaetzliche_hosts=[r"img\.shields\.io"])
+                                   zusaetzliche_hosts=[r"img\.shields\.io",
+                                                       r"(?:www\.)?flaticon\.com"])
 r.check("nur neutrale Beispieladressen", not adressen, " | ".join(sorted(set(adressen))[:4]))
 
 # ---- Keine Geheimnisse; Version steht überall gleich

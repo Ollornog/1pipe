@@ -1,4 +1,4 @@
-<p align="center"><img src="docs/microphone.png" alt="1pipe" width="250" height="250"></p>
+<p align="center"><img src="docs/pipe.png" alt="1pipe" width="250" height="250"></p>
 
 <h1 align="center">1pipe</h1>
 
@@ -77,3 +77,7 @@ Report vulnerabilities privately — see [`SECURITY.md`](SECURITY.md).
 ## Licence
 
 [MIT](LICENSE)
+
+## Credits
+
+Logo and icons: <a href="https://www.flaticon.com/free-icons/pipe" title="pipe icons">Pipe icons created by vectorsmarket15 — Flaticon</a>.

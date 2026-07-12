@@ -10,6 +10,9 @@ Alle nennenswerten Änderungen an diesem Projekt. Das Format folgt lose
 
 - **Projekt in `1pipe` umbenannt** (vormals ChatWisMe): Repository, Paketname, README und
   Übersetzung, Badges, Sicherheits-/Community-Dateien und Kontaktadresse.
+- **Logo** auf `docs/pipe.png` (Rohrfitting statt Mikrofon) gewechselt; zwei weitere
+  Pipe-Varianten `docs/pipe-2.png`/`docs/pipe-3.png` liegen als Alternativen bei. Bildnachweis
+  (Flaticon, vectorsmarket15) im README beider Sprachfassungen ergänzt.
 
 ## [0.1.0] - 2026-07-12
 

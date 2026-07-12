@@ -84,4 +84,4 @@ Antworten auf häufig gestellte Fragen zu diesem Verhaltenskodex finden Sie in d
 [mozilla]: https://github.com/mozilla/inclusion
 
 <br /><br />
-<p align="right"><img src="../docs/microphone.png" alt="1pipe" width="60" height="60"></p>
+<p align="right"><img src="../docs/pipe.png" alt="1pipe" width="60" height="60"></p>

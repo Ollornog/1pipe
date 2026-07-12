@@ -31,4 +31,4 @@ The security of the third-party services 1pipe connects to (the chat server, the
 the archive), and anything an authenticated operator can do by design.
 
 <br /><br />
-<p align="right"><img src="docs/microphone.png" alt="1pipe" width="60" height="60"></p>
+<p align="right"><img src="docs/pipe.png" alt="1pipe" width="60" height="60"></p>

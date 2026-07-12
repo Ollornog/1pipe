@@ -48,4 +48,4 @@ Include what you expected, what happened, and the smallest reproduction — the 
 involved, the incoming message, and the assistant's reply.
 
 <br /><br />
-<p align="right"><img src="docs/microphone.png" alt="1pipe" width="60" height="60"></p>
+<p align="right"><img src="docs/pipe.png" alt="1pipe" width="60" height="60"></p>
