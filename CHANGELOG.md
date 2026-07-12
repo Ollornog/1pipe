@@ -13,6 +13,8 @@ Alle nennenswerten Änderungen an diesem Projekt. Das Format folgt lose
 - **Logo** auf `docs/pipe.png` (Rohrfitting statt Mikrofon) gewechselt; zwei weitere
   Pipe-Varianten `docs/pipe-2.png`/`docs/pipe-3.png` liegen als Alternativen bei. Bildnachweis
   (Flaticon, vectorsmarket15) im README beider Sprachfassungen ergänzt.
+- **Bildnachweis** verlinkt jetzt direkt die Autorenseite (statt der Flaticon-Suchseite) und
+  öffnet in neuem Tab; einheitliches Format `Icon: … PNG Image by … - flaticon.com`.
 
 ## [0.1.0] - 2026-07-12
 

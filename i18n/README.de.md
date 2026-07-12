@@ -86,4 +86,4 @@ Schwachstellen bitte vertraulich melden — siehe [`SECURITY.de.md`](SECURITY.de
 
 ## Bildnachweis
 
-Logo und Icons: <a href="https://www.flaticon.com/free-icons/pipe" title="pipe icons">Pipe icons created by vectorsmarket15 — Flaticon</a>.
+Icon: <a href="https://www.flaticon.com/authors/vectorsmarket15" target="_blank" rel="noopener">Pipe PNG Image by vectorsmarket15 - flaticon.com</a>
