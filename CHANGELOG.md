@@ -8,6 +8,10 @@ Alle nennenswerten Änderungen an diesem Projekt. Das Format folgt lose
 
 ### Geändert
 
+- **Geteilte Testbasis auf repokit 0.7.0** (`repokit sync`): bringt `tests/_kit/headers.py` mit —
+  Prüfungen für Security-Header und Cookie-Flags. 1pipe setzt derzeit keine eigenen Cookies, die
+  Datei liegt für später bereit. `STANDARD_POLICY` verlangt bewusst kein HSTS: das setzt der
+  Reverse-Proxy, eine App-Suite kann es gar nicht sehen.
 - **Projekt in `1pipe` umbenannt** (vormals ChatWisMe): Repository, Paketname, README und
   Übersetzung, Badges, Sicherheits-/Community-Dateien und Kontaktadresse.
 - **Logo** auf `docs/pipe.png` (Rohrfitting statt Mikrofon) gewechselt; zwei weitere
