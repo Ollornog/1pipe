@@ -6,6 +6,25 @@ Alle nennenswerten Änderungen an diesem Projekt. Das Format folgt lose
 
 ## [Unreleased]
 
+### Hinzugefügt — Drei neue Hygiene-Wächter (geteilte Testbasis auf repokit 0.14.0)
+
+Alle drei schließen Lücken, die vorher **grün aussahen**:
+
+- **Dateiliste vollständig.** `pruefe_geheimnisse([], …)` ist grün — eine leere oder
+  unvollständige Dateiliste war von „alles sauber" nicht zu unterscheiden. Die Suite zählt
+  jetzt gegen `git ls-tree -r HEAD` statt gegen eine Mindestzahl, weil der reale Fall nicht
+  „leer" war: über `git archive` fehlte einmal das ganze `.github/`, also genau die Dateien,
+  die die Workflow-Prüfungen ansehen sollen.
+- **Keine blanken fremden Hostnamen.** `pruefe_adressen` sieht nur URLs **mit** Schema, das
+  Muster für private Infrastruktur verlangt **drei** Namensteile — eine blanke
+  Second-Level-Domain fiel durch beide. Der freigegebene Grundstock (`python.org`,
+  `devguide.python.org`, `flaticon.com`) ist durchgesehen; jede **neue** Adresse wird rot.
+- **`persist-credentials: false` an jedem `actions/checkout`.** Ausdrücklich **eigene
+  Härtung, kein belegter Standard** — GitHub empfiehlt es nirgends. Seit `checkout@v6` liegt
+  das Token in `$RUNNER_TEMP` statt in `.git/config`; es zählt dort, wo nach dem Checkout
+  fremder Code läuft. Keine Ausnahme nötig: kein Job hier pusht über die git-Zugangsdaten,
+  das Release läuft über `gh release create` mit `GITHUB_TOKEN`.
+
 ### Geändert — Python 3.12 ist die neue Untergrenze (Matrix 3.12 / 3.13 / 3.14)
 
 `requires-python` steigt von `>=3.10` auf `>=3.12`, die CI fährt **3.12, 3.13, 3.14** statt
