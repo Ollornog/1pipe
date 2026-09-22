@@ -39,6 +39,16 @@ _kit_drift = manifest.pruefe(str(ROOT))
 r.check(f"tests/_kit unverändert (Kit {manifest.version(str(ROOT))}; sonst: repokit sync .)",
         not _kit_drift, " | ".join(_kit_drift[:3]))
 
+# ---- Sieht die Suite überhaupt alle Dateien? (Kit 0.14.0)
+# Zweiter Wächter derselben Sorte wie der über dem Kit: dort geht es um die
+# Prüffunktionen, hier um ihr Material. `pruefe_geheimnisse([], ...)` ist grün,
+# und bei `ci-local` fehlten über `git archive` schon einmal genau die `.github/`-
+# Dateien, die die Workflow-Prüfungen brauchen (`export-ignore` in .gitattributes).
+# Deshalb wird gegen `git ls-tree -r HEAD` gezählt, nicht nur gegen eine Mindestzahl.
+_liste = hygiene.pruefe_dateiliste_plausibel(DATEIEN, root=str(ROOT))
+r.check(f"Dateiliste vollständig ({len(DATEIEN)} getrackte Dateien)",
+        not _liste, " | ".join(_liste[:3]))
+
 # ---- Pflichtdateien (zweisprachig, wo es den Leser betrifft)
 PFLICHT = [
     "README.md", "i18n/README.de.md", "LICENSE", "CHANGELOG.md",
@@ -66,6 +76,20 @@ adressen = hygiene.pruefe_adressen(str(ROOT), DATEIEN, POLICY,
                                    zusaetzliche_hosts=[r"img\.shields\.io",
                                                        r"(?:www\.)?flaticon\.com"])
 r.check("nur neutrale Beispieladressen", not adressen, " | ".join(sorted(set(adressen))[:4]))
+
+# ---- … und keine fremden Hostnamen OHNE Schema (Kit 0.14.0)
+# Die Lücke daneben: `pruefe_adressen` sieht nur URLs mit `https://`, und das Muster
+# in `pruefe_private_infrastruktur` verlangt drei Namensteile. Eine blanke
+# Second-Level-Domain fällt durch beide — so stand in einem öffentlichen Repo ein
+# realer Firmenname.
+# Der Grundstock unten ist die vom PO DURCHGESEHENE und freigegebene Liste der Hosts,
+# die hier stehen dürfen (Python-Doku und der lizenzpflichtige Bildnachweis fürs Logo).
+# Er ist nicht automatisch entstanden: ab jetzt wird JEDE neue Adresse rot, und sie
+# kommt erst nach erneuter Durchsicht hinzu.
+blank = hygiene.pruefe_blanke_adressen(str(ROOT), DATEIEN, POLICY,
+                                       grundstock=["python.org", "devguide.python.org",
+                                                   "flaticon.com"])
+r.check("keine blanken fremden Hostnamen", not blank, " | ".join(blank[:4]))
 
 # ---- Keine Geheimnisse; Version steht überall gleich
 lecks = hygiene.pruefe_geheimnisse(str(ROOT), DATEIEN, POLICY)
@@ -142,6 +166,18 @@ r.check("geführte Matrix widerspricht der Rolling-Regel nicht", not _rr, " | ".
 # main-Lauf hängt hinterher kein Abbild und kein Required Check.
 _cip = hygiene.pruefe_kein_abbruch_auf_default_branch(str(ROOT), DATEIEN)
 r.check("kein unbedingtes cancel-in-progress auf main", not _cip, " | ".join(_cip[:3]))
+
+# ---- Eigene Härtung, bewusst NICHT im Abschnitt "Belegte Standards" (Kit 0.14.0)
+# Die Ebene gehört dazu: GitHub empfiehlt `persist-credentials: false` nirgends
+# ausdrücklich (geprüft 2026-09-22 an Secure-Use-Doku und checkout-README). Seit
+# checkout@v6 liegt das Token in $RUNNER_TEMP statt in `.git/config` — kleiner als die
+# oft zitierte Begründung, aber nicht weg. Es zählt dort, wo nach dem Checkout
+# fremder Code läuft (`tj-actions/changed-files` ist der bekannte Fall).
+# Keine Ausnahme nötig: kein Job hier pusht über die git-Zugangsdaten, das Release
+# läuft über `gh release create` mit GITHUB_TOKEN.
+_pc = hygiene.pruefe_persist_credentials(str(ROOT), DATEIEN)
+r.check("jeder actions/checkout setzt `persist-credentials: false`",
+        not _pc, " | ".join(_pc[:3]))
 
 # ---- Der Wächter über den Wächtern (repokit 0.13.0)
 # Er meldet jede Kit-Prüfung, die ausgeliefert, aber nicht gerufen wird — genau der
