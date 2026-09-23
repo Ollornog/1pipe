@@ -5,6 +5,13 @@
 #
 # Sicherheits-Updates für Abhängigkeiten laufen getrennt davon über den Repo-Schalter
 # (Dependabot security updates) und brauchen keine Konfiguration.
+#
+# Gebündelt wird nach Risiko, nicht nach Menge (seit 2026-09-23, Gegenleistung dafür,
+# dass Auto-Merge repo-weit abgeschaltet ist und wieder von Hand gemergt wird):
+# Patch und Minor wandern zusammen in EINEN PR, Majors bleiben absichtlich draußen und
+# kommen einzeln. Ein Major kann die Laufzeit wechseln (node20 → node24) oder Eingaben
+# entfernen, das gehört einzeln angesehen. Ein Patch-Bump mit gepinntem SHA und grüner
+# Suite gehört es nicht.
 version: 2
 updates:
   - package-ecosystem: github-actions
@@ -13,6 +20,10 @@ updates:
       interval: monthly
     commit-message:
       prefix: "ci"
+    groups:
+      klein:
+        patterns: ["*"]
+        update-types: ["patch", "minor"]
   # Die Abhängigkeiten selbst. Bis 2026-09-22 fehlten sie hier: Dependabot meldete zwar
   # Sicherheitslücken (das tut es repo-weit), aber es gab keine regulären Versions-PRs.
   # ⚠️ Grenze, gemessen an TinySesam: bei einem Projekt mit `>=`-Untergrenzen hebt die
@@ -24,6 +35,10 @@ updates:
     schedule:
       interval: monthly
     groups:
-      # Ein PR je Monat statt einem je Paket — sonst ertrinkt ein Solo-Projekt in Rauschen.
-      alle:
+      # Bis 2026-09-23 stand hier eine Gruppe `alle` ohne Filter — die hätte auch einen
+      # Major stillschweigend in den Sammel-PR gezogen. Jetzt nur noch patch und minor;
+      # zwei Gruppen mit `patterns: ["*"]` gehen nicht, Dependabot verlangt eindeutige,
+      # nicht überlappende Gruppen.
+      klein:
         patterns: ["*"]
+        update-types: ["patch", "minor"]
