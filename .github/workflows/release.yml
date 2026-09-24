@@ -7,6 +7,15 @@ name: release
 # Vorher prüft der Job, dass der Tag zur Version im Paket passt. Ein Release mit falscher
 # Versionsnummer ist schlimmer als keins: es ist unauffällig falsch.
 
+# `workflow_dispatch` ist der TROCKENLAUF und seit 2026-09-24 auch einer: Bis dahin gab es den
+# Knopf, aber jeder Druck darauf wäre am Tag-Vergleich gescheitert (`GITHUB_REF_NAME` ist dann ein
+# Branch) — und wäre er es nicht, hätte er aus einem Branch heraus VERÖFFENTLICHT. Ein Notausgang,
+# der beim Öffnen klemmt oder ins Freie führt, ist keiner.
+#
+# Warum überhaupt: ein Workflow mit `on: push: tags` wird von der normalen CI NIE berührt. Er sieht
+# gepflegt aus, weil das Repo grün ist — das Grün kommt aber von einem anderen Workflow. Genau so
+# lief der erste Tag von TinySesam nach zwei Monaten rot (setuptools/wheel fehlten im Release-Job).
+# Jetzt: alles bis zum Bau läuft auch beim Trockenlauf, nur das Veröffentlichen hängt am Tag.
 on:
   push:
     tags: ["v*"]
@@ -32,6 +41,7 @@ jobs:
           python-version: "3.12"
 
       - name: Tag gegen die Paketversion prüfen
+        if: github.ref_type == 'tag'
         run: |
           tag="${GITHUB_REF_NAME#v}"
           pkg="$(python -c 'import tomllib,pathlib;
@@ -41,6 +51,19 @@ jobs:
             exit 1
           fi
           echo "Tag und Paketversion stimmen überein: $pkg"
+
+      # Beim Trockenlauf gibt es keinen Tag, gegen den man vergleichen könnte — geprüft wird
+      # stattdessen, dass die Paketversion im CHANGELOG steht. Damit ist der Schritt nicht bloß
+      # übersprungen: er prüft das, was in dieser Lage prüfbar ist.
+      - name: Trockenlauf — Version und CHANGELOG
+        if: github.ref_type != 'tag'
+        run: |
+          pkg="$(python -c 'import tomllib,pathlib;
+          print(tomllib.loads(pathlib.Path("pyproject.toml").read_text())["project"]["version"])')"
+          echo "Trockenlauf ohne Tag. Paketversion: $pkg"
+          grep -q "\[$pkg\]" CHANGELOG.md \
+            || { echo "CHANGELOG kennt Version $pkg nicht" >&2; exit 1; }
+          echo "CHANGELOG kennt $pkg — bereit für den Tag v$pkg"
 
       - name: Suite fahren, bevor irgendetwas veröffentlicht wird
         run: python tests/run_all.py --no-browser
@@ -55,7 +78,11 @@ jobs:
 
       # Bewusst `gh` statt einer Dritt-Action: die bräuchte `contents: write` auf dieses Repo,
       # und ihr Tag ließe sich umhängen. `gh` ist auf den Runnern vorinstalliert.
+      # ⚠️ NUR beim Tag. Ohne diese Bedingung würde ein Trockenlauf aus einem Branch heraus ein
+      # Release anlegen — `--verify-tag` fiele über einen Branchnamen, aber auf einen Zufall soll
+      # sich hier nichts verlassen. Der Trockenlauf endet nach dem Bau.
       - name: Release anlegen
+        if: github.ref_type == 'tag'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh release create "$GITHUB_REF_NAME" dist/* --generate-notes --verify-tag
