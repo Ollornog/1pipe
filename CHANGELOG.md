@@ -6,6 +6,12 @@ Alle nennenswerten Änderungen an diesem Projekt. Das Format folgt lose
 
 ## [Unreleased]
 
+### Geändert — Tests
+
+- Geteilte Testbasis auf repokit 0.27.1. `tests/test_repo.py` ruft die neue Prüfung
+  `pruefe_parallel_worker`: Die Worker-Zahl paralleler Testläufe kommt aus `CI_KERNE`, nie aus
+  einer Erkennung der Kerne (`nproc`, `cpu_count`, `-n auto`).
+
 ### Hinzugefügt — Drei neue Hygiene-Wächter (geteilte Testbasis auf repokit 0.14.0)
 
 Alle drei schließen Lücken, die vorher **grün aussahen**:
