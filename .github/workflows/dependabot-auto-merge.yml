@@ -15,18 +15,20 @@
 # Merge nur mit --match-head-commit; läuft auf ubuntu-latest, nie self-hosted.
 name: Dependabot Auto-Merge
 
-on:
+on:  # zizmor: ignore[dangerous-triggers] — kein Checkout, kein PR-Code; Herkunft per API geprüft
   workflow_run:
     workflows: ["CI"]
     types: [completed]
 
-permissions:
-  contents: write
-  pull-requests: write
-  actions: write
+# Oben nichts; die Schreibrechte hält allein der Job (least privilege, M6/B1).
+permissions: {}
 
 jobs:
   automerge:
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
     # Fork-Schutz über den KOPF: `workflow_run.repository` ist immer das Basis-Repo (Hinweis aus der
     # TinySesam-Session, 2026-09-28). Die API-Prüfung im Schritt bleibt zusätzlich.
     if: >

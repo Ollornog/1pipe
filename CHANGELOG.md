@@ -6,6 +6,14 @@ Alle nennenswerten Änderungen an diesem Projekt. Das Format folgt lose
 
 ## [Unreleased]
 
+### Geändert — Workflow-Rechte
+
+- `dependabot-auto-merge.yml`: Schreibrechte (`contents`, `pull-requests`, `actions`) nur noch am
+  Job, oben `permissions: {}` (M6/B1, least privilege). Begründete zizmor-Ausnahme für den
+  Auslöser `workflow_run`: kein Checkout, kein PR-Code, Herkunft per API geprüft. Ein
+  Schwachstellen-Tor (`audit.yml`) folgt mit der ersten Abhängigkeit — heute gäbe es nichts
+  aufzulösen, und ein Lauf über null Pakete prüft nichts.
+
 ### Geändert — Tests
 
 - Geteilte Testbasis auf repokit 0.27.1. `tests/test_repo.py` ruft die neue Prüfung
