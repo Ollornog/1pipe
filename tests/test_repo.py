@@ -224,6 +224,16 @@ r.check("in tag-Workflows hängt jedes Veröffentlichen am Tag", not _vt, " | ".
 _pw = hygiene.pruefe_parallel_worker(str(ROOT), DATEIEN)
 r.check("Worker-Zahl paralleler Läufe aus CI_KERNE", not _pw, " | ".join(_pw[:3]))
 
+# Das Schwachstellen-Tor (Kit 0.31.0, M6/B1): 1pipe ist noch ein Gerüst ohne Laufzeit-Abhängigkeiten
+# (`dependencies = []` in pyproject.toml) — es gibt nichts aufzulösen, das ein Audit prüfen könnte.
+# Mit Grund ausgenommen; landet der erste Dienst, kommt `audit.yml` (Vorlage C22), und die Prüfung
+# meldet die Ausnahme dann selbst als falsche Einladung.
+_aw = hygiene.pruefe_audit_workflow(str(ROOT), DATEIEN, ausgenommen={
+    "1pipe": "Gerüst ohne Laufzeit-Abhängigkeiten (`dependencies = []`): nichts aufzulösen, "
+             "das ein Audit prüfen könnte; mit dem ersten Dienst kommt audit.yml",
+})
+r.check("Schwachstellen-Tor: begründet ausgenommen oder scharf", not _aw, " | ".join(_aw[:3]))
+
 _ng = hygiene.pruefe_kit_prueffunktionen_gerufen(str(ROOT), ausgenommen={
     "pruefe_extras_imports":
         "kein CI-Job ohne Extras (`minimal`) — die Suite läuft immer mit allen Extras, ein ungeschützter Extra-Import kann hier nicht brechen (Kit 0.24.0, T-9)",
