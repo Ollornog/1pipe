@@ -6,6 +6,11 @@ Alle nennenswerten Änderungen an diesem Projekt. Das Format folgt lose
 
 ## [Unreleased]
 
+### Geändert — Auto-Merge mit GitHub App (Kit 0.33.0)
+
+- Veraltete Dependabot-Zweige (Branch-Schutz „aktuell“) zieht der Auto-Merge per App-Token und Rebase nach;
+  gemergt wird mit dem App-Token, der Push startet die Workflows des Standardzweigs selbst. Ohne App unverändert.
+
 ### Geändert — Dependabot-Auto-Merge aus der repokit-Vorlage (Kit 0.30.1)
 
 - Updates mergen selbst, sobald die Pflicht-Checks grün sind — **auch Majors** (PO 2026-10-11).
