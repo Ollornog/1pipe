@@ -30,3 +30,5 @@ wie Code, nicht lesbar im Diff.
 - Mehr Eigenbau, dafür eine normale Codebasis mit Tests und Changelog.
 - Was der Baukasten geschenkt hätte (fertige Konnektoren), muss einzeln gebaut werden — bewusst,
   denn gebraucht wird nur eine Handvoll.
+
+<!-- Probe Text-Schnellweg, wird nicht gemergt -->
