@@ -83,3 +83,5 @@ Report vulnerabilities privately — see [`SECURITY.md`](SECURITY.md).
 ## Credits
 
 Icon: <a href="https://www.flaticon.com/authors/vectorsmarket15" target="_blank" rel="noopener">Pipe PNG Image by vectorsmarket15 - flaticon.com</a>
+
+Diese Zeilen sind ein Test für die Sprachregel der Doku-Schnellspur. Das Repo hat keinen Schalter, und der PR wird nicht gemergt, sondern geschlossen. Die Regel muss ihn ablehnen.
