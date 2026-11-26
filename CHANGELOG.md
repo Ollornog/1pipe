@@ -6,6 +6,10 @@ Alle nennenswerten Änderungen an diesem Projekt. Das Format folgt lose
 
 ## [Unreleased]
 
+### Geändert — tests/run_all.py auf Englisch
+
+- Docstring und Bilanzzeilen von `tests/run_all.py` sind englisch (alle Repos sind englisch).
+
 ### Geändert — Python 3.13–3.15 (Testkit 0.37.0)
 
 - Die Matrix fährt 3.13/3.14/3.15, `requires-python` ist `>=3.13` (die letzten drei stable Python-Reihen; 3.15.0 erschien am 2026-10-09).
