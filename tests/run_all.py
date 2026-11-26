@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Sammellauf: führt jede tests/test_*.py aus und meldet eine Bilanz.
+"""Collective run: runs every tests/test_*.py and reports a summary.
 
-  python tests/run_all.py                # alles
-  python tests/run_all.py --no-browser   # ohne Browser-Test (kurze Schleife)
+  python tests/run_all.py                # everything
+  python tests/run_all.py --no-browser   # without the browser test (short loop)
 
-Exit 0 nur, wenn jede Suite grün ist. Übersprungene Suiten sind kein Fehler.
+Exit 0 only if every suite is green. Skipped suites are no error.
 """
 from __future__ import annotations
 
@@ -28,6 +28,6 @@ for suite in suiten:
 
 print("\n" + "─" * 60)
 if rot:
-    print(f"\033[31m✗ {len(rot)} von {len(suiten)} Suiten rot: {', '.join(rot)}\033[0m")
+    print(f"\033[31m✗ {len(rot)} of {len(suiten)} suites red: {', '.join(rot)}\033[0m")
     sys.exit(1)
-print(f"\033[32m✓ {len(suiten)} Suiten grün\033[0m")
+print(f"\033[32m✓ {len(suiten)} suites green\033[0m")
